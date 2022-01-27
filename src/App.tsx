@@ -1,25 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState, useContext} from 'react';
+import { Heading, VStack, IconButton } from '@chakra-ui/react';
+import GroceryForm from './Components/GroceryForm/GroceryForm';
+import {FaSun, FaMoon} from 'react-icons/fa'
+
+
+  interface ListItem {
+    id: number;
+    groceryItem: string;
+    ammount: number;
+}
 
 function App() {
+  const[groceries, setGroceries]:[object[], any] = useState([{}]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <VStack p={4}>
+      <IconButton
+      alignSelf={"flex-end"}
+      size='lg' aria-label="darkmode"
+      icon={<FaSun/>}
+      isRound={true}/>
+      <Heading>Todo Application</Heading>
+      <GroceryForm/>
+      test
+    </VStack>
+
+
   );
 }
 
